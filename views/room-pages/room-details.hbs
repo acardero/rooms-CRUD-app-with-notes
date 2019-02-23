@@ -1,0 +1,31 @@
+<h1> {{ theRoom.name }} </h1>
+<p> {{theRoom.description}}</p>
+<img src="{{theRoom.imageUrl}}" alt="room photo" width="500">
+<br>
+
+{{#each theRoom.reviews}}
+
+<p><b>{{this.user.fullName}}</b> {{ this.comment }}</p>
+
+
+{{/each}}
+
+<form action="/room/{{theRoom._id}}/create-review" method="POST">
+<label for="">Add Review</label>
+<textarea name="comment" cols="30" rows="10"></textarea>
+<button type="submit">Submit</button>
+</form>
+
+<br>
+<br>
+
+  {{#if theRoom.isOwner}}
+   <form action="/room/{{theRoom._id}}/delete" method='POST'>
+   <button type="submit">Delete</button>
+   </form>
+
+   <form action="/room/{{theRoom._id}}/edit" method='GET'>
+   <button type="submit">Edit</button>
+  </form>
+   
+   {{/if}}

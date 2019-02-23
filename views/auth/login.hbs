@@ -1,0 +1,21 @@
+<h1>Login</h1>
+
+<form action="/login" method="POST">
+
+
+<label for="">Email:</label>
+<input type="email" name="email" >
+
+<label for="">Password:</label>
+<input type="password" name="password" >
+
+<button type='submit'>Login</button>
+
+<button> <a href="/slack-login">Login with Slack</a></button>
+<button> <a href="/google-login">Login with Google</a></button>
+
+</form>
+
+</form>
+
+{{> flashMessage}}
